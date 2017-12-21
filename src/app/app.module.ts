@@ -42,6 +42,8 @@ import { AdminAuthGuard } from 'app/services/admin-auth-guard.service';
   ],
   providers: [
     OrderService,
+    AuthHttp,
+    AuthConfig,
 
     AuthService,
     AuthGuard,
