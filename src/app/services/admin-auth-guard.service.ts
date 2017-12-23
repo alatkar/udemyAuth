@@ -5,7 +5,7 @@ import { AuthService } from 'app/services/auth.service';
 @Injectable()
 export class AdminAuthGuard implements CanActivate {
   canActivate() {
-    if(this.authService.currentUser && this.authService.currentUser.admin) return true;
+    if (this.authService.currentUser && this.authService.currentUser.admin) return true;
 
     this.router.navigate(['/no-access']);
     return false;

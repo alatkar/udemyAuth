@@ -11,13 +11,13 @@ export class AuthService {
   constructor(private http: Http) {
   }
 
-  login(credentials) { 
-   return this.http.post('/api/authenticate', 
+  login(credentials) {
+   return this.http.post('/api/authenticate',
       JSON.stringify(credentials))
       .map(response => {
-        let result = response.json();
+        const result = response.json();
         console.log(response.json());
-        if(result && result.token){
+        if (result && result.token){
           localStorage.setItem('token', result.token);
           return true;
         }
@@ -26,11 +26,11 @@ export class AuthService {
       });
   }
 
-  logout() { 
+  logout() {
     localStorage.removeItem('token');
   }
 
-  isLoggedIn() { 
+  isLoggedIn() {
 
     return tokenNotExpired();
 /*
@@ -51,8 +51,8 @@ export class AuthService {
   }
 
   get currentUser(){
-    let token = localStorage.getItem('token');
-    if(!token)
+    const token = localStorage.getItem('token');
+    if (!token)
       return null;
     else
       return new JwtHelper().decodeToken(token);

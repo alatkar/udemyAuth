@@ -13,7 +13,7 @@ export class OrderService {
   constructor(private http: AuthHttp) {
   }
 
-  getOrders() { 
+  getOrders() {
 
     // let headers = new Headers();
     // let token = localStorage.getItem('token');
